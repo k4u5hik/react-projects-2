@@ -10,8 +10,18 @@ function App() {
     // console.log(count)
     // console.log(typeof count)
     let amount = parseInt(count)
-    console.log(typeof amount)
-    setText(data)
+    // console.log(typeof amount)
+
+    if (count <= 0) {
+      amount = 1
+    }
+
+    if (count > data.length) {
+      amount = data.length
+      console.log(data.length)
+    }
+
+    setText(data.slice(0, amount))
   }
   return (
     <section className='section-center'>
