@@ -6,7 +6,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('hello world')
+    // console.log('hello world')
+    setText(data)
   }
   return (
     <section className='section-center'>
@@ -25,8 +26,9 @@ function App() {
         </button>
       </form>
       <article className='lorem-text'>
-        <p>Lorem iprsum 1</p>
-        <p>Lorem iprsum 2</p>
+        {text.map((item, index) => {
+          return <p key={index}>{item}</p>
+        })}
       </article>
     </section>
   )
