@@ -7,9 +7,10 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // console.log('hello world')
-    console.log(count)
-    console.log(typeof count)
-
+    // console.log(count)
+    // console.log(typeof count)
+    let amount = parseInt(count)
+    console.log(typeof amount)
     setText(data)
   }
   return (
