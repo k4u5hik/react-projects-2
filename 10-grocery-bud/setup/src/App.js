@@ -10,7 +10,7 @@ function App() {
   const [alert, setAlert] = useState({
     show: true,
     msg: 'alert message!',
-    type: 'success',
+    type: 'danger',
   })
   const handleSubmit = (e) => {
     e.preventDefault()
