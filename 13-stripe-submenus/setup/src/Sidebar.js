@@ -11,7 +11,11 @@ const Sidebar = () => {
         isSidebarOpen ? 'sidebar-wrapper show' : 'sidebar-wrapper'
       }`}
     >
-      sidebar component
+      <div className='sidebar'>
+        <button className='close-btn' onClick={closeSidebar}>
+          <FaTimes />
+        </button>
+      </div>
     </aside>
   )
 }
