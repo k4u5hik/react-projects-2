@@ -6,7 +6,7 @@ import { useGlobalContext } from './context'
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext()
   const displaySubmenu = (e) => {
-    console.log('open submenu')
+    console.log(e.target)
     openSubmenu()
   }
   return (
