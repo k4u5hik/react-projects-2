@@ -20,6 +20,17 @@ const Submenu = () => {
       ref={container}
     >
       <h4>{page}</h4>
+      <div className={`submenu-center col-2`}>
+        {links.map((links, index) => {
+          const { url, icon, label } = links
+          return (
+            <a key={index} href={url}>
+              {icon}
+              {label}
+            </a>
+          )
+        })}
+      </div>
     </aside>
   )
 }
