@@ -5,6 +5,12 @@ const reducer = (state, action) => {
       cart: [],
     }
   }
+  if (action.type === 'REMOVE_ITEM') {
+    return {
+      ...state,
+      cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
+    }
+  }
   return state
 }
 
