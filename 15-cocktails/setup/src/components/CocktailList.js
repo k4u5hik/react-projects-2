@@ -9,6 +9,9 @@ const CocktailList = () => {
   if (loading) {
     return <Loading />
   }
+  if (CocktailList.length < 1) {
+    return <h2 className='section-title'>No cocktails found</h2>
+  }
   return (
     <div>
       <h2>cocktail list component</h2>
