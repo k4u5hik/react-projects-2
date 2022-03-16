@@ -10,11 +10,12 @@ const AppProvider = ({ children }) => {
   const [cocktails, setCocktails] = useState([])
 
   const fetchDrinks = async () => {
-    setLoading(true)
+    setLoading(true) // we use this function more than once, so we need to set it to true before we fetch
     try {
       const response = await fetch(`${url}${searchTerm}`)
       const data = await response.json()
-      const drinks = data
+      console.log(data)
+      const { drinks } = data
       if (drinks) {
         const newCocktails = drinks.map((item) => {
           const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
@@ -32,12 +33,9 @@ const AppProvider = ({ children }) => {
         setCocktails([])
       }
       setLoading(false)
-
-      console.log(data)
-      setCocktails(data)
-      setLoading(false)
     } catch (error) {
       console.log(error)
+      setLoading(false)
     }
   }
   useEffect(() => {
