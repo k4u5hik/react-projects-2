@@ -6,13 +6,13 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 const SingleCocktail = () => {
   const { id } = useParams()
   const [loading, setLoading] = React.useState(false)
-  const [cocktail, setCocktail] = React.useState({})
+  const [cocktail, setCocktail] = React.useState(null)
 
   React.useEffect(() => {
     setLoading(true)
     async function getCocktail() {
       try {
-        const response = await fetch(`${url} ${id}`)
+        const response = await fetch(`${url}${id}`)
         const data = await response.json()
         if (data.drinks) {
           const {
@@ -22,18 +22,28 @@ const SingleCocktail = () => {
             strCategory: category,
             strGlass: glass,
             strInstructions: instructions,
-            strIngredients1,
-            strIngredients2,
-            strIngredients3,
-            strIngredients4,
-            strIngredients5,
+            strIngredient1,
+            strIngredient2,
+            strIngredient3,
+            strIngredient4,
+            strIngredient5,
+            strIngredient6,
+            strIngredient7,
+            strIngredient8,
+            strIngredient9,
+            strIngredient10,
           } = data.drinks[0]
           const ingredients = [
-            strIngredients1,
-            strIngredients2,
-            strIngredients3,
-            strIngredients4,
-            strIngredients5,
+            strIngredient1,
+            strIngredient2,
+            strIngredient3,
+            strIngredient4,
+            strIngredient5,
+            strIngredient6,
+            strIngredient7,
+            strIngredient8,
+            strIngredient9,
+            strIngredient10,
           ]
           const newCocktail = {
             name,
@@ -51,6 +61,7 @@ const SingleCocktail = () => {
         setLoading(false)
       } catch (error) {
         console.log(error)
+        setLoading(false)
       }
     }
     getCocktail()
@@ -93,6 +104,17 @@ const SingleCocktail = () => {
           <p>
             <span className='drink-data'>instructions:</span>
             {instructions}
+          </p>
+          <p>
+            <span className='drink-data'>ingredients:</span>
+            {ingredients.map((item, index) => {
+              return item ? (
+                <span key={index}>
+                  {item}
+                  <br />
+                </span>
+              ) : null
+            })}
           </p>
         </div>
       </div>

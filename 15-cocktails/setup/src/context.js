@@ -37,10 +37,10 @@ const AppProvider = ({ children }) => {
       console.log(error)
       setLoading(false)
     }
-  })
+  }, [searchTerm])
   useEffect(() => {
     fetchDrinks()
-  }, [searchTerm])
+  }, [searchTerm, fetchDrinks])
 
   return (
     <AppContext.Provider
