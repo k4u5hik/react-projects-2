@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('a')
   const [cocktails, setCocktails] = useState([])
 
-  const fetchDrinks = async () => {
+  const fetchDrinks = useCallback(async () => {
     setLoading(true) // we use this function more than once, so we need to set it to true before we fetch
     try {
       const response = await fetch(`${url}${searchTerm}`)
@@ -37,7 +37,7 @@ const AppProvider = ({ children }) => {
       console.log(error)
       setLoading(false)
     }
-  }
+  })
   useEffect(() => {
     fetchDrinks()
   }, [searchTerm])
