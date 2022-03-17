@@ -12,3 +12,5 @@ const Home = () => {
 }
 
 export default Home
+
+// npm run build for production
