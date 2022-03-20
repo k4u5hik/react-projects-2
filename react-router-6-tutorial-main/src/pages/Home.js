@@ -3,11 +3,12 @@ import Navbar from '../final/components/Navbar'
 
 const Home = () => {
   return (
-    <section>
-      <Navbar />
-      <Outlet />
-    </section>
-    //The Outlet component is a special component that is used to render the content of the current route.
+    <>
+      <section className='section'>
+        <Navbar />
+        <Outlet />
+      </section>
+    </>
   )
 }
 export default Home
